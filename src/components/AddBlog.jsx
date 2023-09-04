@@ -32,14 +32,14 @@ const AddBlog = () => {
       } catch (error) {
         console.log(error, 'Login failed');
       }
-      console.log(account, 'before reset')
       action.resetForm()
     }
   })
+  const BlogOptions = ['documents', 'science', 'biological', 'anime']
 
 
   return (
-    <>
+    <div className='bg-gray-800 text-white h-screen'>
       <Header />
       <section className="p-6 bg-gray-800 text-gray-50">
         <form onSubmit={handleSubmit} className="container flex flex-col mx-auto space-y-12">
@@ -75,21 +75,28 @@ const AddBlog = () => {
                   name="title"
                   id="title"
                   type="text" placeholder="Title" className="w-full p-2 outline-none rounded-md focus:ring focus:ri focus:ri border-gray-700 text-gray-900" />
+                {errors.title && touched.title ? (
+                  <p className="text-red-600 text-center text-sm">{errors.title}</p>
+                ) : null}
               </div>
               <div className="col-span-full sm:col-span-3">
-                <label className="text-sm">Blog Type</label>
+                <label className="text-sm">Blog Type </label>
                 <select
                   value={values.blogType || ''}
                   onChange={handleChange}
                   onBlur={handleBlur}
                   name="blogType"
-                  id="blogType" className="w-full p-2 outline-none rounded-md  focus:ring focus:ring-indigo-500 border-gray-700 text-gray-900">
-                  <option value="" disabled selected>Choose Blog</option>
-                  <option value="document">Document</option>
-                  <option value="science">Science</option>
-                  <option value="biological">Biological</option>
-                  <option value="anime">Anime</option>
+                  id="blogType" className="w-full p-2 outline-none rounded-md  focus:ring focus:ring-indigo-500 border-gray-700 text-gray-900 capitalize">
+                  <option value="" className='' disabled selected>Choose Blog</option>
+                  {BlogOptions.map((item) => {
+                    return (
+                      <option value={item} className="uppercase ">{item}</option>
+                    )
+                  })}
                 </select>
+                {errors.blogType && touched.blogType ? (
+                  <p className="text-red-600 text-center text-sm">{errors.blogType}</p>
+                ) : null}
               </div>
 
               <div className="col-span-full">
@@ -100,6 +107,9 @@ const AddBlog = () => {
                   onBlur={handleBlur}
                   name="imageUrl"
                   id="imageUrl" type="text" placeholder="URL" className="w-full p-2 outline-none rounded-md focus:ring focus:ri focus:ri border-gray-700 text-gray-900" />
+                {errors.imageUrl && touched.imageUrl ? (
+                  <p className="text-red-600 text-center text-sm">{errors.imageUrl}</p>
+                ) : null}
               </div>
               <div className="col-span-full">
                 <label for="bio" className="text-sm">Description</label>
@@ -110,13 +120,16 @@ const AddBlog = () => {
                   name="description"
                   id="description"
                   className="w-full outline-none p-2  rounded-md focus:ring focus:ri focus:ri border-gray-700 text-gray-900"></textarea>
+                  {errors.description && touched.description ? (
+                  <p className="text-red-600 text-center text-sm">{errors.description}</p>
+                ) : null}
               </div>
               <button type="submit" className=" font-semibold  rounded-2xl cursor-pointer bg-gray-100 text-gray-800  col-end-7 ">Submit</button>
             </div>
           </fieldset>
         </form>
       </section>
-    </>
+    </div>
   )
 }
 
