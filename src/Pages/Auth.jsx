@@ -60,13 +60,14 @@ const Auth = () => {
         <div className="h-screen p-10 md:flex bg-black"
         // style={{backgroundImage:'url(https://images.pexels.com/photos/15286/pexels-photo.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1)', backgroundRepeat: 'no-repeat', backgroundSize: 'cover'}}
         >
+            
             <div
                 className="relative overflow-hidden md:flex w-1/2  i justify-around items-center hidden">
                 {/* <img src="https://images.pexels.com/photos/15286/pexels-photo.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="" /> */}
             </div>
             <div className="flex md:w-1/2  justify-center items-center  py-10">
                 <form onSubmit={handleSubmit} className="bg-gray-500 bg-opacity-50 w-full px-10 py-12 rounded-2xl ">
-                    <h1 className="text-gray-200 font-bold text-3xl mb-1 text-center">READERS</h1>
+                    <h1 className="text-gray-200 font-bold text-3xl mb-1 text-center"> READERS</h1>
                     <p className="text-lg font-normal text-gray-600 mb-7 text-center">Welcome...</p>
                     {account === 'login' ? (
                         <>

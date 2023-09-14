@@ -14,7 +14,7 @@ const Home = () => {
         try {
             const blogs = await getBlogs()
             const doc = blogs.data.blogs
-            await setUserBlogs(doc)
+            setUserBlogs(doc)
         } catch (error) {
             console.log(error)
         }
@@ -29,7 +29,7 @@ const Home = () => {
         <div className='bg-gray-800 text-white h-screen'>
             <Header />
             <Hero />
-            <CarousalBlog />
+            {/* <CarousalBlog /> */}
             {UserBlogs ? <SingleBlog UserBlogs={UserBlogs} /> : <EmptyBlog />}
             <Blogs />
         </div>

@@ -5,8 +5,7 @@ const Hero = () => {
     const randomImageURL = 'https://picsum.photos/1920/1080';
     return (
         <>
-
-            <div className='max-w-[1640px] mx-auto'>
+            <div className='relative max-w-[1640px] mx-auto'>
                 <div className='max-h-[500px] relative'>
                     {/* Overlay */}
                     <div className='absolute w-full h-full text-gray-200 max-h-[500px] bg-black/10 flex flex-col justify-center'>
